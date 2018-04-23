@@ -1,0 +1,38 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    Z racji tego, iż jesteś nowym klientem, przygotowaliśmy dla Ciebie zestaw pytań: <br/><br/>
+
+    Ile jesteś w stanie przeznaczyc miesięcznie na zakup ubrania? <br/>
+    <h:selectOneListbox value = "#{survey.currentClient.newClientQuestion1}">
+        <f:selectItem itemValue = "do 100 zł" itemLabel = "do 100 zł" />
+        <f:selectItem itemValue = "100-500 zł" itemLabel = "100-500 zł" />
+        <f:selectItem itemValue = "500-1000 zł" itemLabel = "500-1000 zł" />
+        <f:selectItem itemValue = "powyżej 1000 zł" itemLabel = "powyżej 1000 zł" />
+    </h:selectOneListbox>
+    <br/><br/>
+    Jak często dokonujesz zakupu ubrania?  <br/>
+    <h:selectOneListbox value = "#{survey.currentClient.newClientQuestion2}">
+        <f:selectItem itemValue = "Codziennie" itemLabel = "Codziennie" />
+        <f:selectItem itemValue = "Raz w tygodniu" itemLabel = "Raz w tygodniu" />
+        <f:selectItem itemValue = "Raz w miesiącu" itemLabel = "Raz w miesiącu" />
+        <f:selectItem itemValue = "Kilka razy w roku" itemLabel = "Kilka razy w roku" />
+    </h:selectOneListbox>
+    <br/><br/>
+    W jakich kolorach preferujesz ubrania?  <br/>
+    <h:selectOneListbox value = "#{survey.currentClient.newClientQuestion3}">
+        <f:selectItem itemValue = "Kolorowo-jaskrawych" itemLabel = "Kolorowo-jaskrawych" />
+        <f:selectItem itemValue = "Stonowanych w szarościach" itemLabel = "Stonowanych w szarościach" />
+        <f:selectItem itemValue = "W czerni i bieli" itemLabel = "W czerni i bieli" />
+        <f:selectItem itemValue = "W samej czerni" itemLabel = "W samej czerni" />
+    </h:selectOneListbox>
+    <br/><br/>
+    Jakiego rodzaju ubrania najchętniej kupujesz?   <br/>
+    <h:selectManyListbox value = "#{survey.currentClient.newClientQuestions4}">
+        <f:selectItems value="#{survey.appropriateList}"/>
+    </h:selectManyListbox>
+
+</ui:composition>

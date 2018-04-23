@@ -1,0 +1,37 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    Z racji tego, iż jesteś starym klientem, przygotowaliśmy dla Ciebie badanie satysfakcji: <br/><br/>
+
+    Kiedy ostatnio robiłaś/robiłeś u nas zakupy? <br/>
+    <h:selectOneListbox value = "#{survey.currentClient.oldClientQuestion1}">
+        <f:selectItem itemValue = "Wczoraj" itemLabel = "Wczoraj" />
+        <f:selectItem itemValue = "W zeszłym tygodniu" itemLabel = "W zeszłym tygodniu" />
+        <f:selectItem itemValue = "W zeszłym miesiącu" itemLabel = "W zeszłym miesiącu" />
+        <f:selectItem itemValue = "Kilka miesięcy temu" itemLabel = "Kilka miesięcy temu" />
+        <f:selectItem itemValue = "Niepamiętam" itemLabel = "Niepamiętam" />
+    </h:selectOneListbox>
+    <br/><br/>
+    Czy jesteś zadowolona/zadowolony z zakupu?  <br/>
+    <h:selectOneListbox value = "#{survey.currentClient.oldClientQuestion2}">
+        <f:selectItem itemValue = "Codziennie" itemLabel = "Codziennie" />
+        <f:selectItem itemValue = "Raz w tygodniu" itemLabel = "Raz w tygodniu" />
+        <f:selectItem itemValue = "Raz w miesiącu" itemLabel = "Raz w miesiącu" />
+        <f:selectItem itemValue = "Kilka razy w roku" itemLabel = "Kilka razy w roku" />
+    </h:selectOneListbox>
+    <br/><br/>
+    Czy jesteś zadowolona/zadowolony z naszych pracowników?  <br/>
+    <h:selectOneListbox value = "#{survey.currentClient.oldClientQuestion3}">
+        <f:selectItem itemValue = "Kolorowo-jaskrawych" itemLabel = "Kolorowo-jaskrawych" />
+        <f:selectItem itemValue = "Stonowanych w szarościach" itemLabel = "Stonowanych w szarościach" />
+        <f:selectItem itemValue = "W czerni i bieli" itemLabel = "W czerni i bieli" />
+        <f:selectItem itemValue = "W samej czerni" itemLabel = "W samej czerni" />
+    </h:selectOneListbox>
+    <br/> <br/>
+    Wpisz swoje uwagi  <br/>
+    <h:inputTextarea value="#{survey.currentClient.oldClientQuestion4}"/>
+
+</ui:composition>

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" build-on-make="true" name="EJBLibrary">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="EJBLibrary.jar">
+      <element id="artifact" artifact-name="EJBLibrary:ejb exploded" />
+      <element id="directory" name="META-INF" />
+    </root>
+  </artifact>
+</component>

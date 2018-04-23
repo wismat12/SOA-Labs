@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zad3_zgadywanieLiczby">
+    <output-path>$PROJECT_DIR$/out/artifacts/zad3_zgadywanieLiczby.war</output-path>
+    <root id="archive" name="zad3_zgadywanieLiczby.war">
+      <element id="javaee-facet-resources" facet="zad3_zgadywanieLiczby/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="zad3_zgadywanieLiczby" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

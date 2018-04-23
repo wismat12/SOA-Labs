@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>index</title>
+</h:head>
+<h:body>
+
+    <h:form >
+        Przejdź do  <h:commandButton value="strony 1" action="#{losowanie.przejdz}">
+        <f:param name="toPage" value="1" />
+    </h:commandButton>
+    </h:form>
+    <h:form >
+        Przejdź do  <h:commandButton value="strony 2" action="#{losowanie.przejdz}">
+        <f:param name="toPage" value="2" />
+    </h:commandButton>
+    </h:form>
+    <h:form >
+        Przejdź do  <h:commandButton value="strony 3" action="#{losowanie.przejdz}">
+        <f:param name="toPage" value="3" />
+    </h:commandButton>
+    </h:form>
+    <h:form >
+        Przejdź do  <h:commandButton value="strony 4" action="#{losowanie.przejdz}">
+        <f:param name="toPage" value="4" />
+    </h:commandButton>
+    </h:form>
+    <h:form >
+        Przejdź do  <h:commandButton value="strony 5" action="#{losowanie.przejdz}">
+        <f:param name="toPage" value="5" />
+    </h:commandButton>
+    </h:form>
+    <br/>
+
+</h:body>
+</html>

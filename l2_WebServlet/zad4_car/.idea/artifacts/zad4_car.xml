@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="zad4_car">
+    <output-path>$PROJECT_DIR$/out/artifacts/zad4_car.war</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="zad4_car/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="zad4_car" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

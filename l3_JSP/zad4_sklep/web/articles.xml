@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<computer_parts>
+    <part id="1">
+        <name>Monitor LCD 1</name>
+        <price>450.99</price>
+    </part>
+    <part id="2">
+        <name>Myszka 1</name>
+        <price>20.99</price>
+    </part>
+    <part id="3">
+        <name>Karta graficzna 1</name>
+        <price>250.65</price>
+    </part>
+    <part id="4">
+        <name>Procesor 1</name>
+        <price>270.25</price>
+    </part>
+    <part id="5">
+        <name>Procesor 2</name>
+        <price>500.11</price>
+    </part>
+    <part id="6">
+        <name>Klawiatura 1</name>
+        <price>50.41</price>
+    </part>
+</computer_parts>

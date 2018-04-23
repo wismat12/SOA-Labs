@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zad4_ankieta_ajax">
+    <output-path>$PROJECT_DIR$/out/artifacts/zad4_ankieta_ajax.war</output-path>
+    <root id="archive" name="zad4_ankieta_ajax.war">
+      <element id="javaee-facet-resources" facet="zad4_ankieta_ajax/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="zad4_ankieta_ajax" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

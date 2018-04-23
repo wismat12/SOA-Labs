@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<movies>
+    <movie>
+        <title>Avatar</title>
+        <genre>sci-fi</genre>
+        <year>2009</year>
+        <boxOffice>2782275172</boxOffice>
+    </movie>
+    <movie>
+        <title>Titanic</title>
+        <genre>melodramat</genre>
+        <year>1997</year>
+        <boxOffice>2187463944</boxOffice>
+    </movie>
+    <movie>
+        <title>Przelecz ocalonych</title>
+        <genre>wojenny</genre>
+        <year>2016</year>
+        <boxOffice>175302354</boxOffice>
+    </movie>
+    <movie>
+        <title>Gwiezdne wojny: Przebudzenie Mocy</title>
+        <genre>przygodowy</genre>
+        <year>2015</year>
+        <boxOffice>2068223624</boxOffice>
+    </movie>
+    <movie>
+        <title>Avengers</title>
+        <genre>akcja</genre>
+        <year>2012</year>
+        <boxOffice>1518594910</boxOffice>
+    </movie>
+    <movie>
+        <title>Czarna Pantera</title>
+        <genre>akcja</genre>
+        <year>2018</year>
+        <boxOffice>1237316236</boxOffice>
+    </movie>
+    <movie>
+        <title>Helikopter w ogniu</title>
+        <genre>wojenny</genre>
+        <year>2001</year>
+        <boxOffice>172989651</boxOffice>
+    </movie>
+</movies>

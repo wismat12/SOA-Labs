@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zad3_komis">
+    <output-path>$PROJECT_DIR$/out/artifacts/zad3_komis.war</output-path>
+    <root id="archive" name="zad3_komis.war">
+      <element id="javaee-facet-resources" facet="zad3_komis/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="zad3_komis" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

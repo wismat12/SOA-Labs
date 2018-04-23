@@ -1,0 +1,55 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <br/>
+    Podaj swoje imie:
+    <h:inputText id="name" value="#{survey.currentClient.name}"
+                 required="true"
+                 requiredMessage="Musisz podać swoje imie!"/> (*wymagane)
+    <f:ajax event="keyup" render="nameError"/>
+    <h:message id="nameError" for="name" style="color: red"/> <br/><br/>
+
+    Podaj swój wiek:
+    <h:inputText id="age" value="#{survey.currentClient.age}"
+                 required="true"
+                 requiredMessage="Musisz podać wiek!"
+                 converterMessage="Wiek musi być liczbą całkowitą!"
+                 validatorMessage="Wiek musi należeć do przedziału (10-100)">
+        <f:validateLongRange minimum="10" maximum="100"/>
+        <f:ajax event="keyup" render="ageError"/>
+    </h:inputText> (*wymagany)
+    <h:message id="ageError" for="age" style="color: red"/> <br/> <br/>
+
+    Wybierz płeć:
+    <h:selectOneRadio id="sex" value="#{survey.currentClient.sex}" required="true" requiredMessage="Musisz podać płeć!">
+        <f:selectItem itemValue = "male" itemLabel = "mężczyzna" />
+        <f:selectItem itemValue = "female" itemLabel = "kobieta" />
+        <f:ajax event="change" render="height height2 height3 sexError additionalInfoPage acceptButton questionsOrSatisfactionPage" />
+    </h:selectOneRadio>
+    <h:message id="sexError" for="sex" style="color: red"/>
+    <br/>
+
+    Podaj swoje wykształcenie:
+    <h:inputText id="education" value="#{survey.currentClient.education}"/> (opcjonalne) <br/> <br/>
+
+    <h:panelGroup id="height" >
+        <h:outputText value="Podaj swój wzrost:" rendered="#{survey.currentClient.sexChosen}" />
+        <h:inputText id="height2" value="#{survey.currentClient.height}" rendered="#{survey.currentClient.sexChosen}"
+                     required="true"
+                     requiredMessage="Musisz podać wzrost!"
+                     converterMessage="Wzrost musi być liczbą całkowitą!"
+                     validatorMessage="#{survey.currentClient.sex == 'male' ? 'Podaj wiek z przedzialu 165-200' : 'Podaj wiek z przedzialu 150-185'}">
+            <f:validateLongRange minimum="#{survey.currentClient.sex == 'male' ? 165 : 150}" maximum="#{survey.currentClient.sex == 'male' ? 200 : 185}"/>
+            <f:ajax render="height"/>
+        </h:inputText>
+        <h:outputText id="height3" value="#{survey.currentClient.sex == 'male' ? 'Dla mężczyzny powinieneś wybrać z 165-200'
+                                : 'Dla kobiety powinieneś wybrać z 150-185'}" rendered="#{survey.currentClient.sexChosen}" /> <br/>
+
+        <h:message for="height2" style="color: red"/><br/>
+    </h:panelGroup>
+
+</ui:composition>

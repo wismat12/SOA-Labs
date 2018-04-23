@@ -1,0 +1,49 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    Dla kobiety prosimy o: <br/><br/>
+
+    Obwód biustu:
+    <h:inputText id="biust" value="#{survey.currentClient.additionalInfo['biust']}"
+                 required="true"
+                 requiredMessage="Musisz podać  Obwód biustu!"
+                 converterMessage=" Obwód biustu musi być liczbą całkowitą!">
+    </h:inputText> (*wymagany)
+    <h:message for="biust" style="color: red"/> <br/> <br/>
+
+    Wielkość miseczki:
+    <h:inputText id="miseczka" value="#{survey.currentClient.additionalInfo['miseczka']}"
+                 required="true"
+                 requiredMessage="Musisz podać Wielkość miseczki!"
+                 converterMessage="Wielkość miseczki musi być liczbą całkowitą!">
+    </h:inputText> (*wymagany)
+    <h:message for="miseczka" style="color: red"/> <br/> <br/>
+
+    Biodra:
+    <h:inputText id="biodra" value="#{survey.currentClient.additionalInfo['biodra']}"
+                 required="true"
+                 requiredMessage="Musisz podać Dlugość nogi!"
+                 converterMessage="Dlugość nogi musi być liczbą całkowitą!">
+    </h:inputText> (*wymagany)
+    <h:message for="biodra" style="color: red"/> <br/> <br/>
+
+    Talia:
+    <h:inputText id="talia" value="#{survey.currentClient.additionalInfo['talia']}"
+                 required="true"
+                 requiredMessage="Musisz podać Dlugość nogi!"
+                 converterMessage="Dlugość nogi musi być liczbą całkowitą!">
+    </h:inputText> (*wymagany)
+    <h:message for="talia" style="color: red"/> <br/> <br/>
+
+    Dlugość nogi:
+    <h:inputText id="dlugosc_nogi" value="#{survey.currentClient.additionalInfo['dlugosc_nogi']}"
+                 required="true"
+                 requiredMessage="Musisz podać Dlugość nogi!"
+                 converterMessage="Dlugość nogi musi być liczbą całkowitą!">
+    </h:inputText> (*wymagany)
+    <h:message for="dlugosc_nogi" style="color: red"/> <br/> <br/>
+
+</ui:composition>

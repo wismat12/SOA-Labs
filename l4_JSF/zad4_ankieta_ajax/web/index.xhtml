@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>ankieta</title>
+</h:head>
+<h:body>
+   <h:panelGroup id="welcome">
+      <h:outputText value="Witaj w naszej ankiecie! Podaj maila po którym możemy sprawdzić czy jesteś starym klientem :)"  rendered="#{survey.initWelcomeRender}"/>
+      <h:outputText value="Cześć #{survey.currentClient.name}. Poniżej znajdują się Twoje dane, sprawdź czy się zgadzają.! Ewentualnie nanieś zmiany"
+                    rendered="#{survey.welcomeClientRender}"/>
+      <h:outputText value="Nie mamy Twojego adresu. Witaj nowy kliencie!"  rendered="#{survey.welcomeNewClientRender}"/>
+   </h:panelGroup>
+   <br/>
+
+   <h:form>
+      <c:set var="myUrlAd" value="#{adsDatabase.randomAd}"/>
+      <h:commandLink id="link" action="#{adsDatabase.incCounterAd}">
+         <h:graphicImage value="#{myUrlAd}" width="300" height="190" />
+      </h:commandLink>
+   </h:form>
+
+   <h:form>
+      <br/>
+      Podaj swój mail:
+      <h:inputText id="mail" value="#{survey.usersMail}">
+         <f:validator validatorId="validators.EmailValidator"/>
+         <f:ajax render="mailError commonInfoPanel welcome " />
+         <f:ajax event="select" render="mailError commonInfoPanel welcome additionalInfoPage" />
+      </h:inputText> (*wymagany)
+      <h:message id="mailError" for="mail" style="color: red"/> <br/>
+
+      <h:panelGroup id="commonInfoPanel" >
+         <ui:include src="#{survey.commonInfoPage}" />
+      </h:panelGroup>
+
+      <h:panelGroup id="additionalInfoPage" >
+         <ui:include src="#{survey.additionalInfoPapge}" />
+         <h:commandButton value="zatwierdź" rendered="#{((survey.additionalInfoPapge != null)and(!survey.questionsOrSatisfactionRender))}"
+                              action="#{survey.enableQuestionsOrSatifactionRender}"/>
+      </h:panelGroup>
+
+      <h:panelGroup id="questionsOrSatisfactionPage" >
+         <ui:include src="#{survey.ifClientIsNew}" /> <br/>
+         <h:commandButton value="Przeslij ankietę" rendered="#{survey.questionsOrSatisfactionRender}" action="#{survey.gotoSummary}"  />
+      </h:panelGroup>
+   </h:form>
+
+</h:body>
+</html>

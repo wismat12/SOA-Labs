@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zad4_sklep">
+    <output-path>$PROJECT_DIR$/out/artifacts/zad4_sklep.war</output-path>
+    <root id="archive" name="zad4_sklep.war">
+      <element id="javaee-facet-resources" facet="zad4_sklep/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="zad4_sklep" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

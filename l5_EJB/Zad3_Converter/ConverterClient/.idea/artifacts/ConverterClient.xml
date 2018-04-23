@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ConverterClient">
+    <output-path>$PROJECT_DIR$/out/artifacts/ConverterClient.war</output-path>
+    <root id="archive" name="ConverterClient.war">
+      <element id="javaee-facet-resources" facet="ConverterClient/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ConverterClient" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: pl.agh.converter:EJBConverter:ejb:1.0-SNAPSHOT" />
+        </element>
+      </element>
+      <element id="library" level="project" name="Maven: pl.agh.converter:EJBConverter:ejb:1.0-SNAPSHOT" />
+    </root>
+  </artifact>
+</component>

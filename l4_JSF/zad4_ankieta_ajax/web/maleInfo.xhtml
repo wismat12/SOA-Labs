@@ -1,0 +1,33 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    Dla mężczyzny prosimy o: <br/><br/>
+
+    Rozmiar klatki:
+    <h:inputText id="klatka" value="#{survey.currentClient.additionalInfo['klatka']}"
+                 required="true"
+                 requiredMessage="Musisz podać Rozmiar klatki!"
+                 converterMessage="Rozmiar klatki musi być liczbą całkowitą!">
+    </h:inputText> (*wymagany)
+    <h:message for="klatka" style="color: red"/> <br/> <br/>
+
+    Rozmiar pasa:
+    <h:inputText id="pas" value="#{survey.currentClient.additionalInfo['pas']}"
+                 required="true"
+                 requiredMessage="Musisz podać  Rozmiar pasa!"
+                 converterMessage="Rozmiar pasa musi być liczbą całkowitą!">
+    </h:inputText> (*wymagany)
+    <h:message for="pas" style="color: red"/> <br/> <br/>
+
+    Dlugość nogi:
+    <h:inputText id="dlugosc_nogi" value="#{survey.currentClient.additionalInfo['dlugosc_nogi']}"
+                 required="true"
+                 requiredMessage="Musisz podać Dlugość nogi!"
+                 converterMessage="Dlugość nogi musi być liczbą całkowitą!">
+    </h:inputText> (*wymagany)
+    <h:message for="dlugosc_nogi" style="color: red"/> <br/> <br/>
+
+</ui:composition>

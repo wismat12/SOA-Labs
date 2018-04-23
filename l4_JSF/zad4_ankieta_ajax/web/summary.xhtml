@@ -1,0 +1,54 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h1>Wyniki Twojej Ankiety</h1>
+
+    Imię: <h:outputText id="name" value="#{survey.currentClient.name}" /><br/><br/>
+    Mail:<h:outputText id="mail" value="#{survey.currentClient.email}"/><br/><br/>
+    Wiek:<h:outputText id="age" value="#{survey.currentClient.age}"/><br/><br/>
+    Płeć:<h:outputText id="sex" value="#{survey.currentClient.sex == 'female' ? 'kobieta' : 'mezczyzna'}"/><br/><br/>
+    Wykształcenie:<h:outputText id="education" value="#{survey.currentClient.education}"/><br/><br/>
+    Wzrost:<h:outputText id="height2" value="#{survey.currentClient.height}" /><br/><br/>
+
+    Dodatkowe informacje w zależności od płci:
+    <ui:repeat value = "#{survey.currentClient.additionalInfo.keySet}" var = "key">
+        #{key}  -  #{survey.currentClient.additionalInfo[key]} <br/> <br/>
+    </ui:repeat>
+
+    Zestaw pytań na które odpowiedziałeś/odpowiedziałaś uzpuełniając u nas ankietę po raz pierwszy: <br/><br/>
+
+    Ile jesteś w stanie przeznaczyc miesięcznie na zakup ubrania? <br/>
+    <h:outputText value = "#{survey.currentClient.newClientQuestion1}"/><br/><br/>
+
+    Jak często dokonujesz zakupu ubrania?  <br/>
+    <h:outputText value = "#{survey.currentClient.newClientQuestion2}"/><br/><br/>
+
+    W jakich kolorach preferujesz ubrania?  <br/>
+    <h:outputText value = "#{survey.currentClient.newClientQuestion3}"/><br/><br/>
+
+    Jakiego rodzaju ubrania najchętniej kupujesz?   <br/>
+    <ui:repeat value = "#{survey.currentClient.newClientQuestions4}" var = "que">
+        #{que} <br/>
+    </ui:repeat>
+    <br/><br/>
+
+    <h:panelGroup rendered="#{!survey.newClient}">
+        Jeśli składałeś/składałaś u nas juz ankietę, otrzymałeś możliwość wzięcia udziału w badaniu satysfakcji<br/><br/>
+
+        Kiedy ostatnio robiłaś/robiłeś u nas zakupy? <br/>
+        <h:outputText value = "#{survey.currentClient.oldClientQuestion1}"/><br/><br/>
+
+        Czy jesteś zadowolona/zadowolony z zakupu?  <br/>
+        <h:outputText value = "#{survey.currentClient.oldClientQuestion2}"/> <br/><br/>
+
+        Czy jesteś zadowolona/zadowolony z naszych pracowników?  <br/>
+        <h:outputText value = "#{survey.currentClient.oldClientQuestion3}"/> <br/><br/>
+
+        Twoje uwagi: <br/>
+        <h:outputText value="#{survey.currentClient.oldClientQuestion4}"/>
+    </h:panelGroup>
+
+</ui:composition>
