@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TestJPAweb">
+    <output-path>$PROJECT_DIR$/out/artifacts/TestJPAweb</output-path>
+    <root id="archive" name="TestJPAweb.war">
+      <element id="javaee-facet-resources" facet="TestJPAweb/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="TestJPAweb" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.11" />
+          <element id="library" level="project" name="JPA 2.1-2.1" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:2.6.0" />
+        </element>
+      </element>
+      <element id="jpa-descriptors" facet="TestJPAweb/jpa/JPA" />
+    </root>
+  </artifact>
+</component>

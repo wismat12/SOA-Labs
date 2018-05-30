@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://string.webservice.soa.agh.pl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="StatisticalStringImplService" targetNamespace="http://string.webservice.soa.agh.pl/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://string.webservice.soa.agh.pl/" elementFormDefault="unqualified" targetNamespace="http://string.webservice.soa.agh.pl/" version="1.0">
+
+  <xs:element name="analyseString" type="tns:analyseString"/>
+
+  <xs:element name="analyseStringResponse" type="tns:analyseStringResponse"/>
+
+  <xs:complexType name="analyseString">
+    <xs:sequence>
+      <xs:element name="yourString" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="analyseStringResponse">
+    <xs:sequence>
+      <xs:element name="returnedHashMap">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="analyseStringResponse">
+    <wsdl:part element="tns:analyseStringResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="analyseString">
+    <wsdl:part element="tns:analyseString" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StatisticalString">
+    <wsdl:operation name="analyseString">
+      <wsdl:input message="tns:analyseString" name="analyseString">
+    </wsdl:input>
+      <wsdl:output message="tns:analyseStringResponse" name="analyseStringResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StatisticalStringImplServiceSoapBinding" type="tns:StatisticalString">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="analyseString">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="analyseString">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="analyseStringResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StatisticalStringImplService">
+    <wsdl:port binding="tns:StatisticalStringImplServiceSoapBinding" name="StatisticalStringImplPort">
+      <soap:address location="http://localhost:8080/StatisticalString/StatisticalStringImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,3 @@
+jms\MessageSender.class
+jms\MessageReceiver.class
+jms\TestServlet.class

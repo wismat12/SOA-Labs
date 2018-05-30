@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>bilbioteka</title>
+</h:head>
+<h:body>
+
+   <h:form>
+      <h1>Witaj w bilbiotece!</h1>
+      <h:commandButton value="Exploruj Książki" action="#{mainManagedBean.actionTaken('ksiazki.xhtml')}">
+         <f:actionListener binding="#{ksiazkaManagedBean.setRenderBooksAll(true)}" />
+         <f:ajax render="afterChosenAction"/>
+      </h:commandButton>
+      <h:commandButton value="Exploruj Autorów" action="#{mainManagedBean.actionTaken('autorzy.xhtml')}">
+         <f:actionListener binding="#{autorManagedBean.setRenderAddNewAuthor(false)}" />
+         <f:actionListener binding="#{autorManagedBean.setRenderUpdateNewAuthor(false)}" />
+         <f:ajax render="afterChosenAction"/>
+      </h:commandButton>
+      <h:commandButton value="Exploruj Czytelników" action="#{mainManagedBean.actionTaken('czytelnicy.xhtml')}">
+         <f:actionListener binding="#{czytelnikManagedBean.setRenderAddNewReader(false)}" />
+         <f:actionListener binding="#{czytelnikManagedBean.setRenderUpdateNewReader(false)}" />
+         <f:ajax render="afterChosenAction"/>
+      </h:commandButton>
+      <h:commandButton value="Exploruj Wypożyczenia" action="#{mainManagedBean.actionTaken('wypozyczenia.xhtml')}">
+         <f:ajax render="afterChosenAction"/>
+      </h:commandButton>
+      <h:commandButton value="Zaawansowane zapytania" action="#{mainManagedBean.actionTaken('zaawansowane.xhtml')}">
+         <f:ajax render="afterChosenAction"/>
+      </h:commandButton>
+
+      <h:panelGroup id="afterChosenAction">
+         <h:panelGroup rendered="#{mainManagedBean.afterChosenAction}">
+            <ui:include src="#{mainManagedBean.mainAction}" /> <br/>
+         </h:panelGroup>
+      </h:panelGroup>
+
+   </h:form>
+
+</h:body>
+</html>

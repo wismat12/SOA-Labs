@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="ear" name="EARService">
-    <output-path>$PROJECT_DIR$/out/artifacts/EARService</output-path>
-    <root id="archive" name="EARService.ear">
-      <element id="javaee-facet-resources" facet="EARService/javaeeApplication/javaEEApplication" />
-      <element id="module-output" name="EJBService" />
-    </root>
-  </artifact>
-</component>

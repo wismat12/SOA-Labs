@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="bibliotekaJPA">
+    <output-path>C:/Program Files (x86)/PROGRAMY/Programowanie/wildfly-11.0.0.Final/standalone/deployments</output-path>
+    <root id="archive" name="bibliotekaJPA.war">
+      <element id="javaee-facet-resources" facet="bibliotekaJPA/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="bibliotekaJPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.11" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

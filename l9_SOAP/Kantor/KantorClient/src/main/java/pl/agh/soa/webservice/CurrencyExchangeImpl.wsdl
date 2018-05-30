@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice.soa.agh.pl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="CurrencyExchangeImplService" targetNamespace="http://webservice.soa.agh.pl/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservice.soa.agh.pl/" elementFormDefault="unqualified" targetNamespace="http://webservice.soa.agh.pl/" version="1.0">
+
+  <xs:element name="getRate" type="tns:getRate"/>
+
+  <xs:element name="getRateResponse" type="tns:getRateResponse"/>
+
+  <xs:element name="sell" type="tns:sell"/>
+
+  <xs:element name="sellResponse" type="tns:sellResponse"/>
+
+  <xs:complexType name="getRate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getRateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sell">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sellResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getRateResponse">
+    <wsdl:part element="tns:getRateResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sellResponse">
+    <wsdl:part element="tns:sellResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRate">
+    <wsdl:part element="tns:getRate" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sell">
+    <wsdl:part element="tns:sell" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CurrencyExchange">
+    <wsdl:operation name="getRate">
+      <wsdl:input message="tns:getRate" name="getRate">
+    </wsdl:input>
+      <wsdl:output message="tns:getRateResponse" name="getRateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sell">
+      <wsdl:input message="tns:sell" name="sell">
+    </wsdl:input>
+      <wsdl:output message="tns:sellResponse" name="sellResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CurrencyExchangeImplServiceSoapBinding" type="tns:CurrencyExchange">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getRate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sell">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sell">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sellResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CurrencyExchangeImplService">
+    <wsdl:port binding="tns:CurrencyExchangeImplServiceSoapBinding" name="CurrencyExchangeImplPort">
+      <soap:address location="http://localhost:8080/KantorService/CurrencyExchangeImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="RestCats">
+    <output-path>C:/Program Files (x86)/PROGRAMY/Programowanie/wildfly-11.0.0.Final/standalone/deployments</output-path>
+    <root id="archive" name="RestCats.war">
+      <element id="javaee-facet-resources" facet="RestCats/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="RestCats" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

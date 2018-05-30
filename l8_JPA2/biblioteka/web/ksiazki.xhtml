@@ -1,0 +1,126 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h3>Ksiazki</h3>
+    <h:outputText value="#{ksiazkaManagedBean.renderBooksAll ? 'Przegladasz wszystkie książki' : 'Przeglądasz książki autora o id:'}"/>
+    <h:outputText value="#{ksiazkaManagedBean.renderBooksAll ? '' : ksiazkaManagedBean.particularAuthor.idAutor}"/>
+    <br/>
+    <h:commandButton value="Dodaj Nową Książkę" action="#{ksiazkaManagedBean.setRenderAddNewBook(true)}">
+        <f:ajax render="addNewBook"/>
+    </h:commandButton>
+    <br/>
+
+    <h:panelGroup id="printBooks">
+        <table border="3">
+            <thead>
+            <tr>
+                <th>ID</th><th>Tytuł</th><th>Autor</th><th>Akcje</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="#{ksiazkaManagedBean.renderBooksAll ? ksiazkaManagedBean.ksiazki : ksiazkaManagedBean.particularAuthor.ksiazki}" var = "que">
+                <tr>
+                    <td>#{que.idKsiazka}</td><td>#{que.tytul}</td><td>#{que.autor}</td>
+                    <td>
+                        <h:commandButton value="Usuń" action="#{ksiazkaManagedBean.deleteBook(que.idKsiazka)}">
+                            <f:ajax render="printBooks"/>
+                        </h:commandButton>
+                        <h:commandButton value="Aktualizuj" action="#{ksiazkaManagedBean.setBookToAction(que)}">
+                            <f:ajax render="updateBook"/>
+                        </h:commandButton>
+                    </td>
+                </tr>
+            </c:forEach>
+
+            </tbody>
+        </table>
+    </h:panelGroup>
+
+    <h:panelGroup id="addNewBook">
+        <h:panelGroup rendered="#{ksiazkaManagedBean.renderAddNewBook}">
+            <h:outputText value="Dodawanie nowej książki - Najpierw wybierz Autora dla którego chcesz dodać książkę, Jeśli jest to nowy autor, przejdź do "/>
+            <h:commandLink value="Exploruj Autorów" action="#{mainManagedBean.actionTaken('autorzy.xhtml')}">
+                <f:actionListener binding="#{ksiazkaManagedBean.setRenderAddNewBook(false)}" />
+                <f:ajax render="afterChosenAction"/>
+            </h:commandLink>
+            <br/>
+
+            <h:panelGroup id="printAuthors2">
+                <table border="3">
+                    <thead>
+                    <tr>
+                        <th>ID</th><th>Imie</th><th>Nazwisko</th><th>Wybór</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="#{autorManagedBean.autorzy}" var = "que">
+                        <tr>
+                            <td>#{que.idAutor}</td><td>#{que.imie}</td><td>#{que.nazwisko}</td>
+                            <td>
+                                <h:commandButton value="Wybierz" action="#{ksiazkaManagedBean.setParticularAuthor(que)}">
+                                    <f:ajax render="addNewBook"/>
+                                </h:commandButton>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </h:panelGroup>
+
+            Tytuł:<h:inputText value="#{ksiazkaManagedBean.tytul}"/><br/>
+
+            Dla Autora: <h:outputText value="#{ksiazkaManagedBean.particularAuthor}"/><br/>
+
+            <h:commandButton value="Send Query" action="#{ksiazkaManagedBean.addBook}">
+                <f:ajax execute="@form" render="printBooks addNewBook"/>
+            </h:commandButton>
+        </h:panelGroup>
+    </h:panelGroup>
+
+    <h:panelGroup id="updateBook">
+        <h:panelGroup rendered="#{ksiazkaManagedBean.renderUpdateBook}">
+            <h:outputText value="Aktualizowanie książki - Najpierw wybierz Autora dla którego chcesz dodać książkę, Jeśli jest to nowy autor, przejdź do "/>
+            <h:commandLink value="Exploruj Autorów" action="#{mainManagedBean.actionTaken('autorzy.xhtml')}">
+                <f:actionListener binding="#{ksiazkaManagedBean.setRenderUpdateBook(false)}" />
+                <f:ajax render="afterChosenAction"/>
+            </h:commandLink>
+            <br/>
+
+            <h:panelGroup id="printAuthors3">
+                <table border="3">
+                    <thead>
+                    <tr>
+                        <th>ID</th><th>Imie</th><th>Nazwisko</th><th>Wybór</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="#{autorManagedBean.autorzy}" var = "que">
+                        <tr>
+                            <td>#{que.idAutor}</td><td>#{que.imie}</td><td>#{que.nazwisko}</td>
+                            <td>
+                                <h:commandButton value="Wybierz" action="#{ksiazkaManagedBean.setParticularAuthor(que)}">
+                                    <f:ajax render="updateBook"/>
+                                </h:commandButton>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </h:panelGroup>
+
+            ID dla którego aktualizujesz książkę: <h:outputText value="#{ksiazkaManagedBean.bookToAction.idKsiazka}"/> <br/>
+
+            Tytuł:<h:inputText value="#{ksiazkaManagedBean.tytul}"/><br/>
+
+            Dla Autora: <h:outputText value="#{ksiazkaManagedBean.particularAuthor}"/><br/>
+
+            <h:commandButton value="Send Query" action="#{ksiazkaManagedBean.updateBook}">
+                <f:ajax execute="@form" render="printBooks updateBook"/>
+            </h:commandButton>
+        </h:panelGroup>
+    </h:panelGroup>
+
+</ui:composition>

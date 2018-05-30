@@ -1,0 +1,19 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    ID:<h:inputText value="#{mainManagedBean.id}"/><br/>
+
+    Imię:<h:inputText value="#{mainManagedBean.imie}"/><br/>
+
+    Nazwisko:<h:inputText value="#{mainManagedBean.nazwisko}"/><br/>
+
+    Punkty:<h:inputText value="#{mainManagedBean.punkty}"/><br/>
+
+    Narodowość:<h:inputText value="#{mainManagedBean.narodowosc}"/><br/>
+
+    <h:commandButton value="Send Query" action="#{mainManagedBean.addZawodnik}"  />
+
+</ui:composition>

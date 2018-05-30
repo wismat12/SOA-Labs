@@ -1,0 +1,114 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h3>Zaawansowane</h3>
+
+    <h:commandButton value="Zad 1" action="#{mainManagedBean.proceed1}">
+        <f:ajax render="zad1"/>
+    </h:commandButton>
+
+    <h:commandButton value="Zad 2" action="#{mainManagedBean.proceed2}">
+        <f:ajax render="zad2"/>
+    </h:commandButton>
+
+    <h:commandButton value="Zad 3" action="#{mainManagedBean.proceed3}">
+        <f:ajax render="zad3"/>
+    </h:commandButton>
+
+    <h:commandButton value="Zad 4" action="#{mainManagedBean.proceed4}">
+        <f:ajax render="zad4 zad44"/>
+    </h:commandButton>
+
+    <h:panelGroup id="zad1">
+        <table border="3">
+            <thead>
+            <tr>
+                <th>  podaj wszystkich   czytelników,  którzy  pożyczyli  książki    danego autora  (  np. ImieAAA)  w  okresie  od
+                    '2015-09-25' - '2018-05-11'  zad1</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="#{mainManagedBean.resultFrom1}" var = "que">
+                <tr>
+                    <td>#{que}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </h:panelGroup>
+
+
+    <h:panelGroup id="zad2">
+        <table border="3">
+            <thead>
+            <tr>
+                <th> Kto przeczytał książkę „Tytul1” w podanym okresie czasu '2017-09-25' - '2018-01-11' zad2</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="#{mainManagedBean.resultFrom2}" var = "que">
+                <tr>
+                    <td>#{que}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </h:panelGroup>
+
+    <h:panelGroup id="zad3">
+        <table border="3">
+            <thead>
+            <tr>
+                <th>  Wszystkich autorów których książki pożyczył pan ImieGGG zad3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="#{mainManagedBean.resultFrom3}" var = "que">
+                <tr>
+                    <td>#{que}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </h:panelGroup>
+
+    <h:panelGroup id="zad4">
+        <table border="3">
+            <thead>
+            <tr>
+                <th>Jakiego Autora czyta się najwiecej - ksiazki</th><th>autor</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="#{mainManagedBean.resultFrom4}" var = "que">
+                <tr>
+                    <td>#{que}</td><td>#{que.autor}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </h:panelGroup>
+
+    <h:panelGroup id="zad44">
+        <table border="3">
+            <thead>
+            <tr>
+                <th>Jakiego Autora czyta się najwiecej2</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="#{mainManagedBean.resultFrom4Autor}" var = "que">
+                <tr>
+                    <td>#{que}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </h:panelGroup>
+
+
+
+</ui:composition>

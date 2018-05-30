@@ -1,0 +1,148 @@
+hibernate - implementacja
+  HQL - hibernate query lang
+  Do przeczytania:
+  SOAP w rozdziale z javy 7,8 - bedziemy pisac samodzielniej webserivsy soapowe, potem resty, potem security jazz i projekt koñcowy
+  Na za tydzieñ do zrobienia:
+  biblioteka - karta uzytkownika, pozycja,wypoyczenie
+
+
+
+            Data Wypozyczenia (yyyy-MM-dd):
+            <h:inputText id="dataFrom" value="#{wypozyczenieManagedBean.dataWypozyczenia}">
+                <f:ajax render="errorDataFrom dataFrom"/>
+                <f:convertDateTime pattern="yyyy-MM-dd" />
+            </h:inputText><br/>
+            <h:message id="errorDataFrom" for="dataFrom" style="color:red" />
+
+
+po hibernate 2
+
+ejb to ta sama filizofia co soapy - zdalne wywo³anie funkcjonalnosci
+
+dla srodowiska heterogenicznego - nie wiemy kto bedzie korzysta³ - wtedy opakowujemy komponent i udostepniam jako us³uge
+soapa mozna robic od zera -samemu go opkaowywac
+1.-reczne tworzneie
+generwoanei bottom up automatycznie wsdl w momencie deploya	
+potem
+webservice z za³¹cznikami attach
+
+
+po soap 
+mozna sobie zrobic sztucznego mocka zeby generowaæ dane?
+
+soapy to tak jakby ejb
+resty to tak jakby servlety
+soapy wykorzystuja rpc = zak³adaj¹ ze po drugij stronie jest przelicznik - operacja do wykonania
+1.resource - wszytsko znajduje ise gdzies w sieci pod konkretnym endpoincie
+	- po tamtej stronie zak³ada sie ze nie ma operacji a jest zasób 
+	-pozwalaja na wykoannie operacji crudowych
+	- po stronie restowej my jako klient dostarczamy dane, klient siega po dane
+	- dostep do danych i ich aktualizacja
+Bazujemy tylko na http/https
+"negocjacja tresci" - wystawiajac us³ugê wpisujemy warnukowo jaki format obs³ugujemy
+post put delet - modyfikacja danych -statusy http- 200 ok 300 przekierowania, 400 blad loklaizacji endpointa, 500 - b³ad wew servera, dotarlismy do us³ugi ale format danych czy coœ
+
+RESTOWE /nazwaKolekcji/Id - wczesniej mozna pobrac id z crudów
+
+POST GET DELETE- wys³any na kolekcje usuwa wszystko PUT
+domena/.../cats  - do kolekcji
+post musi miec argument, trzeba wyslac obiekt json do kolekcji
+
+
+domena/.../cats/bonifacy - jesli unikalny
+GET - dostane obiekt, info o bonifacym
+POST - wys³any na pojedyñczy zasób - zabronione!! - jest to create - wtedy zwróciæ kod b³êdu!! - nie mozna pukaj¹c do kotka stworzyæ cz³owieka
+PUT - dodawanie, modyfikacja bonifacego itp
+
+przy put, delete trzeba wiedziec jaki jest rodzaj obiektu
+fagger - przy put przechodzi do strony o rodzaju danych, dokumentacja
+
+cats = [
+{
+	Imie : "Filemon",
+	Wiek : 5,
+	
+},{
+	
+}
+
+]
+
+domena/.../authors/345/books/23   - koncentrujemy sie na autorze, mamy autora jego ksiazki
+
+domena/.../books/23/authors/345   - na ksiazkach
+
+ZADANIA:
+przy projekcie jak nie istnieje kotek albo z³y adres to zwróciæ kod b³êdu
+htoas - samodokumentujace siê adresy - moze sie przydac
+
+Za tydzien ostatnie zajecia z poznawania technologii - Jass, potem projekt, bêd¹ kamienie milowe na kazdych labach, do wykorzytania to wszystko co by³o na zajêciach, ejb tez
+
+
+po security 30.05.18
+
+- rest identyfikuje zasob, rest pochodzi od crudow
+w adresie przy rest nie przekazujemy wartosci do dodawania itp, tylko okreslajace przetwarzanie, sortowanie itp - okreslamy jakiego typu zasob chcesz zwrocic
+-Argumenty które przetwarzamy przesy³amy w ciele zapytania get, - zagnie¿dzone bezposrenido w protokole http
+
+model richardsona
+ prawdziwy rest od - 3
+ normlane http to 1 
+
+ CDI - contect dependency injection - jak ktos nie chce uzywac ejb i tej ca³ej otoczki to mozna tym wstrzykiwac obiekty
+----
+techniki autentykacji: logowanie
+token wymaga istnienia serwera autentykacji
+
+protoko³y z sec, d¹zymy do tego by has³o i login nie kr¹¿y³y w sieci, lepiej przes³aæ raz stworzyæ token i potem przesy³aæ token - nie dostaniemy info kto to jest ale ¿e w³aœciciel tego tokena ma prawo do.. - Uprawnienia Dostêpowe
+oauth2 - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REST i serwisy Resfful:
+- bazuja na protokole http jawnie i natywnie do przekazywania informacji
+- ka¿dy zasób jest opisany adresem i operacjami które mo¿na na nim wykonaæ
+- w nazwach czasowniki s¹ z³e a rzeczowniki s¹ dobre
+- ograniczamy sie do dwóch adresów: kolekcji i pojedynczego zasobu
+- nie ogarnia ca³oœci tylko wspiera metody CRUDowe i klasyfikacje zasobów
+- maksymalne uproszczenie
+- REST jest stylem programowania
+
+Zasoby:
+- unikalna adresacja
+- nie definiujemy tematów bezpoœrednio w adresie
+- zaciemnianie danych
+Najpopularniejsz¹ implementacj¹ RESTa jest JSR
+Metody http:
+Create - POST
+Read - GET
+Update - PUT
+Delete - DELETE
+Same dane przesy³amy JSonem, XMLem itp
+Model Dojrza³oœci Richardsona:
+Poziom 0 - HTTP
+Poziom 1 - Zasoby
+Poziom 2 - Metody HTTP
+Poziom 3 HATEOAS
+Wazne jest poprawne zwracanie b³êdów HTTP
+Bezpieczna metoda to taka która nie zmienia stanu na serwerze
+Idempotentnoœæ metod (za ka¿dym razem zwraca to samo)
+Poziom 3 - HATEOAS - Semantyczna komunikacja:
+Rozwi¹zuje problem adresów i tego ¿e mo¿emy konkretnego adresu nie znaæ. Wyniki zwracane od razu siê identyfikuj¹ odpowiednim adresem, linki do zasobów pod którymi dane siê znajduj¹
+Realizujemy REST poziomu 2 na pewno, 3 nie zawsze
+Do testowania RESTa:
+- cURL
+- pluginy do przegl¹darek
+- gotowe us³ugi w sieci

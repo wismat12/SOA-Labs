@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WS">
+    <output-path>$PROJECT_DIR$/out/artifacts/WS</output-path>
+    <root id="archive" name="WS.jar">
+      <element id="module-output" name="JAXWSServer" />
+    </root>
+  </artifact>
+</component>

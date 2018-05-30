@@ -1,0 +1,20 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    Usuwanie zawodnika - zaznacz, którą pozycje chcesz usunąć: <br/><br/>
+
+    <h:selectManyListbox size="8" value = "#{mainManagedBean.chosenZawodnicy}">
+
+        <c:forEach items="#{mainManagedBean.zawodnicy}" var="varZ">
+
+            <f:selectItem itemValue="#{varZ.id}" itemLabel="#{varZ}"/>
+
+        </c:forEach>
+
+    </h:selectManyListbox>
+    <h:commandButton value="Send Query" action="#{mainManagedBean.deleteZawodnicy}"  />
+
+</ui:composition>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice2.soa.agh.pl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="FirstWebServiceImplService" targetNamespace="http://webservice2.soa.agh.pl/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservice2.soa.agh.pl/" elementFormDefault="unqualified" targetNamespace="http://webservice2.soa.agh.pl/" version="1.0">
+
+  <xs:element name="addTwoNumbers" type="tns:addTwoNumbers"/>
+
+  <xs:element name="addTwoNumbersResponse" type="tns:addTwoNumbersResponse"/>
+
+  <xs:complexType name="addTwoNumbers">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addTwoNumbersResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addTwoNumbersResponse">
+    <wsdl:part element="tns:addTwoNumbersResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addTwoNumbers">
+    <wsdl:part element="tns:addTwoNumbers" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="FirstWebService">
+    <wsdl:operation name="addTwoNumbers">
+      <wsdl:input message="tns:addTwoNumbers" name="addTwoNumbers">
+    </wsdl:input>
+      <wsdl:output message="tns:addTwoNumbersResponse" name="addTwoNumbersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FirstWebServiceImplServiceSoapBinding" type="tns:FirstWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addTwoNumbers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addTwoNumbers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addTwoNumbersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FirstWebServiceImplService">
+    <wsdl:port binding="tns:FirstWebServiceImplServiceSoapBinding" name="FirstWebServiceImplPort">
+      <soap:address location="http://localhost:8080/JAXWSServer/FirstWebServiceImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

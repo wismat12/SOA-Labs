@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cats>
+    <cat>
+        <id>0</id>
+        <name>Bazyl</name>
+        <gender>Kot</gender>
+        <coat>Siwe</coat>
+        <breed>Brytyjski liliowy</breed>
+    </cat>
+    <cat>
+        <id>1</id>
+        <name>Andrzej</name>
+        <gender>Kot</gender>
+        <coat>Czarne</coat>
+        <breed>Perski</breed>
+    </cat>
+    <cat>
+        <id>2</id>
+        <name>Milka</name>
+        <gender>Kotka</gender>
+        <coat>Białe, podpalane</coat>
+        <breed>Singapura</breed>
+    </cat>
+</cats>

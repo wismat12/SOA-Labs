@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Zad1ListProducer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Zad1ListProducer.war">
+      <element id="artifact" artifact-name="Zad1ListProducer:war exploded" />
+    </root>
+  </artifact>
+</component>
